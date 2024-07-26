@@ -1,0 +1,143 @@
+* {
+  margin: 0;
+  padding: 0;
+  border: none;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+}
+
+header {
+  background-color: white;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  height: 15vh;
+  position: relative;
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 5%;
+  height: 100%;
+}
+
+.perfil-logo {
+  height: 50px;
+  cursor: pointer; /* Adiciona cursor de ponteiro */
+}
+
+.esquerda, .direita {
+  display: flex;
+  align-items: center;
+}
+
+.meio {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+}
+
+.logo-text {
+  font-size: 4rem; 
+  font-weight: bold;
+  margin: 0;
+}
+
+.logo-bio {
+  color: orange;
+}
+
+.logo-nutri {
+  color: black;
+}
+
+.direita {
+  gap: 2rem; /* Aumenta o espaçamento entre os itens usando rem */
+}
+
+.carrinho {
+  height: 25px;
+  cursor: pointer; /* Adiciona cursor de ponteiro */
+  transition: filter 0.3s ease; /* Transição suave para o brilho */
+}
+
+.carrinho:hover {
+  filter: brightness(0.8); /* Muda o brilho ao passar o mouse */
+}
+
+.pagina-atual {
+  border-radius: 10px;
+  padding: 0.15rem;
+  cursor: pointer; /* Adiciona um cursor de ponteiro para indicar que é clicável */
+  transition: color 0.3s ease; /* Adiciona uma transição suave para a mudança de cor */
+}
+
+.pagina-atual:hover {
+  color: orange; /* Muda a cor para laranja ao passar o mouse */
+}
+
+@media (max-width: 768px) {
+  .header-content {
+    padding: 0 5%; 
+  }
+
+  .perfil-logo {
+    height: 40px;
+  }
+
+  .meio {
+    position: static;
+    transform: none;
+    flex: 2; 
+    justify-content: center;
+    display: flex;
+  }
+
+  .logo-text {
+    font-size: 2.5rem; 
+  }
+
+  .direita {
+    font-size: 14px; 
+    gap: 1.5rem; 
+  }
+
+  .carrinho {
+    height: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .header-content {
+    padding: 0 2%; 
+  }
+
+  .perfil-logo {
+    height: 30px; 
+  }
+
+  .meio {
+    position: static;
+    transform: none;
+    flex: 2; 
+    justify-content: center;
+    display: flex;
+  }
+
+  .logo-text {
+    font-size: 1.8rem; 
+  }
+
+  .direita {
+    font-size: 12px; 
+    gap: 1rem; 
+  }
+
+  .carrinho {
+    height: 15px; 
+  }
+}

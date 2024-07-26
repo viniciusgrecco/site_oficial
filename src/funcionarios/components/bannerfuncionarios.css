@@ -1,0 +1,41 @@
+.banner {
+    background-color: #dbdbdb;
+    text-align: center;
+    padding: 10px 0;
+    width: 100%;
+    cursor: pointer; /* Adiciona o cursor de ponteiro para indicar que é clicável */
+}
+
+.banner p, .banner div {
+    margin: 0;
+    font-size: 1.2rem;
+    outline: none; /* Remove o contorno quando o elemento está em foco */
+}
+
+.banner .highlight {
+    color: red; /* Estiliza o texto R$200 em vermelho */
+}
+
+/* Responsividade para a banner */
+@media (max-width: 768px) {
+    .banner p, .banner div {
+        font-size: 0.9rem; /* Reduzi o tamanho da fonte para telas menores */
+    }
+}
+
+@media (max-width: 480px) {
+    .banner p, .banner div {
+        font-size: 0.8rem; /* Reduz ainda mais o tamanho da fonte para telas muito pequenas */
+        padding: 5px 0; /* Ajusta o padding para telas muito pequenas */
+    }
+}
+
+.color-picker {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.color-picker input {
+    margin: 0 5px;
+}

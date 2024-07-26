@@ -1,0 +1,72 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  .header-login {
+    width: 100%;
+    background-color: #f5f5f5;
+    padding: 10px 0;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .header-content {
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
+  
+  .home-icon {
+    height: 30px;
+    position: absolute;
+    left: 0;
+    cursor: pointer;
+  }
+  
+  .logo-text {
+    font-size: 2.5rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+  }
+  
+  .logo-bio {
+    color: orange;
+  }
+  
+  .logo-nutri {
+    color: black;
+  }
+  
+  @media (max-width: 768px) {
+    .header-content {
+      width: 90%;
+    }
+  
+    .logo-text {
+      font-size: 2rem;
+    }
+  
+    .home-icon {
+      height: 25px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .header-content {
+      width: 95%;
+    }
+  
+    .logo-text {
+      font-size: 1.5rem;
+    }
+  
+    .home-icon {
+      height: 20px;
+    }
+  }
+  

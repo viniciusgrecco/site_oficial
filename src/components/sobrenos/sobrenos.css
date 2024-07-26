@@ -1,0 +1,98 @@
+.sobrenos-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: rgb(228, 228, 228);
+    padding-top: 20px;
+    width: 100%;
+  }
+  
+  .sobrenos-container-branco {
+    background-color: white;
+    width: 80%;
+    max-width: 1200px;
+    height: auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    padding-left: 20px;
+  }
+  
+  .sobrenos-texto {
+    font-size: 3.5rem;
+    color: rgb(255, 180, 42);
+    margin: 0;
+    font-weight: bold;
+    text-align: center;
+  }
+  
+  .foco, .historia {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    margin-top: 20px;
+  }
+  
+  .foco-texto{
+    flex: 1;
+    text-align: left;
+    font-size: 2rem;
+    font-weight: bold;
+  } 
+  
+  .historia-texto {
+    flex: 1;
+    text-align: left;
+    font-size: 2rem;
+  }
+  
+  .foco-imagem, .historia-imagem {
+    flex: 1;
+    max-width: 45%; /* Ajuste a largura máxima das imagens */
+    transition: transform 0.3s ease;
+  }
+
+  .foco-imagem:hover, .historia-imagem :hover {
+    transform: scale(1.1); 
+  }
+  
+  .foco-imagem img, .historia-imagem img {
+    width: 100%;
+    border-radius: 10px;
+  }
+  
+  .historia-texto {
+    margin-left: 20px;
+  }
+  
+  .historia-texto h3 {
+    font-size: 2.5rem;
+    color:#FF7A00;
+    margin-bottom: 10px;
+  }
+  
+  @media (max-width: 768px) {
+    .foco, .historia {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .foco-texto, .historia-texto {
+      margin-right: 0;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+  
+    .foco-imagem, .historia-imagem {
+      text-align: center;
+    }
+  
+    .foco-imagem img, .historia-imagem img {
+      max-width: 100%;
+    }
+  }
+  

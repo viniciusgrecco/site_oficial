@@ -1,0 +1,90 @@
+.produtos-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 20px;
+}
+
+.produto-card {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  margin: 20px;
+  padding: 10px;
+  text-align: center;
+  width: calc(33% - 40px); /* Ajusta a largura conforme necessário */
+  transition: transform 0.2s ease;
+}
+
+.produto-card:hover {
+  transform: scale(1.05);
+}
+
+.imagem-container {
+  position: relative;
+  height: 300px; /* Ajusta a altura conforme necessário */
+}
+
+.imagem-produto, .imagem-hover {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+  transition: opacity 0.3s ease;
+}
+
+.imagem-hover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+}
+
+.imagem-container:hover .imagem-hover {
+  opacity: 1;
+}
+
+.imagem-container:hover .imagem-produto {
+  opacity: 0;
+}
+
+.nome-produto {
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin: 10px 0;
+}
+
+.preco-produto {
+  color: #FF7A00;
+  font-size: 1.2rem;
+  margin: 10px 0;
+}
+
+.botao-comprar {
+  background-color: #FF7A00;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.botao-comprar:hover {
+  background-color: #E66A00;
+}
+
+/* Responsividade */
+@media (max-width: 1024px) {
+  .produto-card {
+    width: calc(50% - 40px); /* Ajusta a largura para metade da tela */
+  }
+}
+
+@media (max-width: 768px) {
+  .produto-card {
+    width: calc(100% - 40px); /* Ajusta a largura para ocupar toda a tela */
+  }
+}
