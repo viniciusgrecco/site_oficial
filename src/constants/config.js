@@ -1,3 +1,3 @@
 export const config = {
-    apiBaseUrl: "https://localhost:8000"
+    apiBaseUrl: "http://localhost:8000"
 }

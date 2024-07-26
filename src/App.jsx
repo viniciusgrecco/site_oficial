@@ -5,7 +5,7 @@ import Pagelogin from "./pages/login";
 import Pageprodutoscliente from "./pages/produtos";
 import Pageprodutosfuncionario from "./pages/funcionarios";
 import { CartProvider } from './CartContext';
-import Pageloginfuncionario from './pages/loginfuncionario';
+import RegisterPage from './pages/cadastrar';
 
 function App() {
   return (
@@ -17,7 +17,7 @@ function App() {
             <Route path="/login" element={<Pagelogin />} />
             <Route path="/produtos" element={<Pageprodutoscliente />} />
             <Route path="/funcionarios" element={<Pageprodutosfuncionario />} />
-            <Route path="/loginfuncionario" element={<Pageloginfuncionario />} />
+            <Route path="/cadastrar" element={<RegisterPage />} />
           </Routes>
         </div>
       </BrowserRouter>

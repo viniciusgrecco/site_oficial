@@ -1,108 +1,112 @@
 .cart-overlay {
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background: rgba(0, 0, 0, 0.5);
-    display: flex;
-    justify-content: flex-end;
-    z-index: 2000;
-  }
-  
-  .cart {
-    background: #fff;
-    width: 400px;
-    padding: 20px;
-    overflow-y: auto;
-  }
-  
-  .cart-item {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 10px;
-  }
-  
-  .cart-item img {
-    width: 50px;
-    height: 50px;
-  }
-  
-  .cart-item div {
-    flex: 1;
-    margin-left: 10px;
-  }
-  
-  .input-quantidade {
-    width: 70px;
-  }
-  
-  .btn-continue,
-  .btn-finalizar,
-  .btn-buscar {
-    background-color: #FF7A00;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    padding: 10px 20px;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    margin-top: 10px;
-    width: calc(100% - 20px);
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  
-  .btn-continue:hover,
-  .btn-finalizar:hover,
-  .btn-buscar:hover {
-    background-color: #E66A00;
-  }
-  
-  .total-preco {
-    margin-top: 20px;
-    font-size: 1.2rem;
-    font-weight: bold;
-    text-align: center;
-  }
-  
-  .cep-container {
-    margin-top: 20px;
-    text-align: center;
-  }
-  
-  .cep-container label {
-    display: block;
-    margin-bottom: 10px;
-  }
-  
-  .cep-container input {
-    width: calc(100% - 20px);
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    margin-bottom: 10px;
-  }
-  
-  .cep-container button {
-    background-color: #FF7A00;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    padding: 10px 20px;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    width: calc(100% - 20px);
-    margin-top: 10px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  
-  .cep-container button:hover {
-    background-color: #E66A00;
-  }
-  
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: flex-end;
+  z-index: 2000;
+}
+
+.cart {
+  background: #fff;
+  width: 400px;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.cart-item img {
+  width: 50px;
+  height: 50px;
+}
+
+.cart-item div {
+  flex: 1;
+  margin-left: 10px;
+}
+
+.input-quantidade {
+  width: 70px;
+}
+
+.btn-continue,
+.btn-finalizar,
+.btn-buscar {
+  background-color: #FF7A00;
+  color: white;
+  border: 1px solid black; /* Borda preta leve */
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 10px;
+  width: 90%; /* Ajuste a largura conforme necessário */
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.btn-continue:hover,
+.btn-finalizar:hover,
+.btn-buscar:hover {
+  background-color: #E66A00;
+}
+
+.total-preco {
+  margin-top: 20px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-align: center;
+  border: 1px solid #FF7A00; /* Borda laranja suave */
+  border-radius: 15px;
+  padding: 10px; /* Adicione padding para dar espaço interno */
+}
+
+.cep-container {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.cep-container label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.cep-container input {
+  width: auto; /* Ajusta a largura conforme necessário */
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-left: 10px; /* Adicione espaço entre o label e o input */
+}
+
+.cep-container button {
+  background-color: #FF7A00;
+  color: white;
+  border: 1px solid black; /* Borda preta leve */
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: 90%; /* Ajuste a largura conforme necessário */
+  margin-top: 10px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.cep-container button:hover {
+  background-color: #E66A00;
+}
