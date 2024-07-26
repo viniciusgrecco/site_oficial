@@ -1,5 +1,5 @@
 import React, { useContext, useState, useEffect } from 'react';
-import { CartContext } from '../../CartContext'; // Certifique-se de que o caminho está correto
+import { CartContext } from '../../CartContext';
 import './cart.css';
 
 const Cart = () => {
@@ -7,6 +7,7 @@ const Cart = () => {
   const [quantidades, setQuantidades] = useState(cartItems.map(item => item.quantidade));
   const [sabores, setSabores] = useState(cartItems.map(item => item.sabor));
   const [precoFinal, setPrecoFinal] = useState(0);
+  const [frete, setFrete] = useState(0);
   const [cep, setCep] = useState('');
   const [endereco, setEndereco] = useState(null);
   const [numero, setNumero] = useState('');
@@ -20,7 +21,28 @@ const Cart = () => {
     setPrecoFinal(total);
   }, [cartItems]);
 
+  useEffect(() => {
+    if (precoFinal >= 200) {
+      setFrete(0);
+    }
+  }, [precoFinal]);
+
+  const calculateDistanceFromIndaiatuba = (cepPrefix) => {
+    const distances = {
+      "13000": 20, // Campinas
+      "14000": 50, // Ribeirão Preto
+      "15000": 80, // São José do Rio Preto
+      "01000": 60, // São Paulo
+      "20000": 100, // Rio de Janeiro
+      "70000": 150, // Brasília
+      "80000": 40, // Curitiba
+      "90000": 120 // Porto Alegre
+    };
+    return distances[cepPrefix] || (20 + Math.floor(Math.random() * 100));
+  };
+
   const handleQuantityChange = (index, value) => {
+    value = Math.max(1, value); // Garante que o valor seja pelo menos 1
     const newQuantidades = [...quantidades];
     newQuantidades[index] = value;
     setQuantidades(newQuantidades);
@@ -44,12 +66,19 @@ const Cart = () => {
         const response = await fetch(`https://viacep.com.br/ws/${cep}/json/`);
         const data = await response.json();
         setEndereco(data);
+
+        const cepPrefix = cep.slice(0, 5);
+        const distancia = calculateDistanceFromIndaiatuba(cepPrefix);
+        const novoFrete = precoFinal >= 200 ? 0 : distancia * 0.5;
+        setFrete(novoFrete);
       } catch (error) {
         console.error('Erro ao buscar o endereço:', error);
         setEndereco(null);
+        setFrete(0);
       }
     } else {
       setEndereco(null);
+      setFrete(0);
     }
   };
 
@@ -58,7 +87,7 @@ const Cart = () => {
       alert('Adicione um item ao carrinho!');
       return;
     }
-    alert(`Compra finalizada! TOTAL: R$${precoFinal.toFixed(2)}`);
+    alert(`Compra finalizada! TOTAL: R$${(precoFinal + frete).toFixed(2)}`);
     clearCart();
     closeCart();
   };
@@ -81,7 +110,8 @@ const Cart = () => {
                   type="number"
                   className='input-quantidade' 
                   value={quantidades[index]} 
-                  onChange={(e) => handleQuantityChange(index, e.target.value)} 
+                  min="1" // Define o valor mínimo como 1
+                  onChange={(e) => handleQuantityChange(index, parseInt(e.target.value, 10) || 1)} 
                 />
               </label>
               <label>
@@ -136,9 +166,10 @@ const Cart = () => {
             <p>CEP não encontrado. Por favor, verifique o CEP digitado.</p>
           )}
         </div>
+        <p className="frete-preco">FRETE: R$ {frete.toFixed(2)}</p>
+        <p className="total-preco">TOTAL: R$ {(precoFinal + frete).toFixed(2)}</p>
         <button className="btn-continue" onClick={closeCart}>Continuar Comprando</button>
         <button className="btn-finalizar" onClick={handleFinalizarCompra}>Finalizar Compra</button>
-        <p className="total-preco">TOTAL: R$ {precoFinal.toFixed(2)}</p>
       </div>
     </div>
   );

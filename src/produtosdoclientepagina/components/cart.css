@@ -61,6 +61,7 @@
   background-color: #E66A00;
 }
 
+.frete-preco,
 .total-preco {
   margin-top: 20px;
   font-size: 1.2rem;
@@ -81,6 +82,7 @@
   align-items: center;
   justify-content: center;
   margin-bottom: 10px;
+  margin-top: 20px;
 }
 
 .cep-container input {
@@ -101,7 +103,7 @@
   cursor: pointer;
   transition: background-color 0.3s ease;
   width: 90%; /* Ajuste a largura conforme necessário */
-  margin-top: 10px;
+  margin-top: 20px; /* Aumenta o espaço entre o botão e os elementos acima */
   display: block;
   margin-left: auto;
   margin-right: auto;
@@ -109,4 +111,8 @@
 
 .cep-container button:hover {
   background-color: #E66A00;
+}
+
+.cep-container .endereco-info {
+  margin-top: 20px;
 }
