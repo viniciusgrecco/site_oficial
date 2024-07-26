@@ -55,15 +55,15 @@ function Funcionarios3() {
             {precoProduto}
           </p>
           <p>Quantidade em estoque</p>
-          <p contentEditable={isEditing} suppressContentEditableWarning={true}>
+          <p contentEditable={isEditing} suppressContentEditableWarning={true} className="info-highlight2">
             {quantidade}
           </p>
           <p>Vendas este mês</p>
-          <p contentEditable={isEditing} suppressContentEditableWarning={true}>
+          <p contentEditable={isEditing} suppressContentEditableWarning={true} className="info-highlight2">
             {vendas}
           </p>
           <p>Satisfação média</p>
-          <p contentEditable={isEditing} suppressContentEditableWarning={true}>
+          <p contentEditable={isEditing} suppressContentEditableWarning={true} className="info-highlight2">
             {satisfacao}
           </p>
           {isEditing ? (

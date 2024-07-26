@@ -5,43 +5,43 @@ import './produtodocliente.css';
 const produtos = [
   {
     id: 1,
-    nome: 'POWER PROTEIN BAR',
-    preco: 'R$ 90',
+    nome: 'POWER PROTEIN BOX',
+    preco: 'R$ 75',
     imagem1: 'src/produtosdoclientepagina/assets/foto-capa.jpg',
     imagem2: 'src/produtosdoclientepagina/assets/foto-informa.jpg'
   },
   {
     id: 2,
-    nome: 'POWER COFFE BAR',
+    nome: 'PROTEIN PACK',
     preco: 'R$ 45',
-    imagem1: 'src/produtosdoclientepagina/assets/foto-capa.jpg',
+    imagem1: 'src/produtosdoclientepagina/assets/foto-capa2.webp',
     imagem2: 'src/produtosdoclientepagina/assets/foto-informa.jpg'
   },
   {
     id: 3,
     nome: 'POWER PROTEIN BAR',
-    preco: 'R$ 10',
-    imagem1: 'src/produtosdoclientepagina/assets/foto-capa.jpg',
+    preco: 'R$ 8',
+    imagem1: 'src/produtosdoclientepagina/assets/foto-capa3.webp',
     imagem2: 'src/produtosdoclientepagina/assets/foto-informa.jpg'
   },
   {
     id: 4,
-    nome: 'POWER PROTEIN BAR',
-    preco: 'R$ 20',
-    imagem1: 'src/produtosdoclientepagina/assets/foto-capa.jpg',
+    nome: 'SUPER PROTEIN BOX',
+    preco: 'R$ 150',
+    imagem1: 'src/produtosdoclientepagina/assets/foto-capa4.webp',
     imagem2: 'src/produtosdoclientepagina/assets/foto-informa.jpg'
   },
   {
     id: 5,
-    nome: 'POWER PROTEIN BAR',
-    preco: 'R$ 90',
-    imagem1: 'src/produtosdoclientepagina/assets/foto-capa.jpg',
+    nome: 'MIXED PROTEIN BOX',
+    preco: 'R$ 180',
+    imagem1: 'src/produtosdoclientepagina/assets/foto-capa5.webp',
     imagem2: 'src/produtosdoclientepagina/assets/foto-informa.jpg'
   },
   {
     id: 6,
-    nome: 'POWER PROTEIN BAR',
-    preco: 'R$ 90',
+    nome: 'POWER PROTEIN BOX',
+    preco: 'R$ 75',
     imagem1: 'src/produtosdoclientepagina/assets/foto-capa.jpg',
     imagem2: 'src/produtosdoclientepagina/assets/foto-informa.jpg'
   },
