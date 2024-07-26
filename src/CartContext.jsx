@@ -9,7 +9,6 @@ export const CartProvider = ({ children }) => {
   const addToCart = (item) => {
     const itemInCart = cartItems.find(cartItem => cartItem.id === item.id);
     if (itemInCart) {
-      // Atualiza a quantidade se o item já estiver no carrinho
       const updatedCartItems = cartItems.map(cartItem =>
         cartItem.id === item.id
           ? { ...cartItem, quantidade: cartItem.quantidade + 1 }
@@ -17,7 +16,6 @@ export const CartProvider = ({ children }) => {
       );
       setCartItems(updatedCartItems);
     } else {
-      // Adiciona um novo item com quantidade 1
       setCartItems([...cartItems, { ...item, quantidade: 1 }]);
     }
   };
@@ -30,11 +28,15 @@ export const CartProvider = ({ children }) => {
     setCartItems([]);
   };
 
+  const removeCartItem = (id) => {
+    setCartItems(cartItems.filter(item => item.id !== id));
+  };
+
   const openCart = () => setIsCartOpen(true);
   const closeCart = () => setIsCartOpen(false);
 
   return (
-    <CartContext.Provider value={{ cartItems, addToCart, updateCartItem, clearCart, isCartOpen, openCart, closeCart }}>
+    <CartContext.Provider value={{ cartItems, addToCart, updateCartItem, clearCart, removeCartItem, isCartOpen, openCart, closeCart }}>
       {children}
     </CartContext.Provider>
   );

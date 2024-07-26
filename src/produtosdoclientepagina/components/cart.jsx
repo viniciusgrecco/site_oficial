@@ -3,7 +3,7 @@ import { CartContext } from '../../CartContext';
 import './cart.css';
 
 const Cart = () => {
-  const { cartItems, updateCartItem, clearCart, isCartOpen, closeCart } = useContext(CartContext);
+  const { cartItems, updateCartItem, clearCart, removeCartItem, isCartOpen, closeCart } = useContext(CartContext);
   const [quantidades, setQuantidades] = useState(cartItems.map(item => item.quantidade));
   const [sabores, setSabores] = useState(cartItems.map(item => item.sabor));
   const [precoFinal, setPrecoFinal] = useState(0);
@@ -12,6 +12,8 @@ const Cart = () => {
   const [endereco, setEndereco] = useState(null);
   const [numero, setNumero] = useState('');
   const [complemento, setComplemento] = useState('');
+  const [cupom, setCupom] = useState('');
+  const [desconto, setDesconto] = useState(0);
 
   useEffect(() => {
     const total = cartItems.reduce((acc, item) => {
@@ -29,20 +31,20 @@ const Cart = () => {
 
   const calculateDistanceFromIndaiatuba = (cepPrefix) => {
     const distances = {
-      "13000": 20, // Campinas
-      "14000": 50, // Ribeirão Preto
-      "15000": 80, // São José do Rio Preto
-      "01000": 60, // São Paulo
-      "20000": 100, // Rio de Janeiro
-      "70000": 150, // Brasília
-      "80000": 40, // Curitiba
-      "90000": 120 // Porto Alegre
+      "13000": 20,
+      "14000": 50,
+      "15000": 80,
+      "01000": 60,
+      "20000": 100,
+      "70000": 150,
+      "80000": 40,
+      "90000": 120
     };
     return distances[cepPrefix] || (20 + Math.floor(Math.random() * 100));
   };
 
   const handleQuantityChange = (index, value) => {
-    value = Math.max(1, value); // Garante que o valor seja pelo menos 1
+    value = Math.max(1, value);
     const newQuantidades = [...quantidades];
     newQuantidades[index] = value;
     setQuantidades(newQuantidades);
@@ -82,14 +84,33 @@ const Cart = () => {
     }
   };
 
+  const handleCupomChange = (e) => {
+    setCupom(e.target.value);
+  };
+
+  const handleAplicarCupom = () => {
+    if (cupom === 'VG10') {
+      setDesconto(0.10);
+    } else if (cupom === 'VG15') {
+      setDesconto(0.15);
+    } else {
+      setDesconto(0);
+    }
+  };
+
   const handleFinalizarCompra = () => {
     if (cartItems.length === 0) {
       alert('Adicione um item ao carrinho!');
       return;
     }
-    alert(`Compra finalizada! TOTAL: R$${(precoFinal + frete).toFixed(2)}`);
+    const totalComDesconto = precoFinal * (1 - desconto) + frete;
+    alert(`Compra finalizada! TOTAL: R$${totalComDesconto.toFixed(2)}`);
     clearCart();
     closeCart();
+  };
+
+  const handleRemoverItem = (id) => {
+    removeCartItem(id);
   };
 
   if (!isCartOpen) return null;
@@ -110,7 +131,7 @@ const Cart = () => {
                   type="number"
                   className='input-quantidade' 
                   value={quantidades[index]} 
-                  min="1" // Define o valor mínimo como 1
+                  min="1"
                   onChange={(e) => handleQuantityChange(index, parseInt(e.target.value, 10) || 1)} 
                 />
               </label>
@@ -125,6 +146,7 @@ const Cart = () => {
                   <option value="morango">Morango</option>
                 </select>
               </label>
+              <button className="btn-remover" onClick={() => handleRemoverItem(item.id)}>Remover</button>
             </div>
           </div>
         ))}
@@ -166,8 +188,20 @@ const Cart = () => {
             <p>CEP não encontrado. Por favor, verifique o CEP digitado.</p>
           )}
         </div>
+        <div className="cupom-container">
+          <label>
+            Cupom de desconto:
+            <input 
+              type="text" 
+              value={cupom} 
+              onChange={handleCupomChange} 
+              placeholder="Digite o cupom"
+            />
+          </label>
+          <button className="btn-aplicar-cupom" onClick={handleAplicarCupom}>Aplicar Cupom</button>
+        </div>
         <p className="frete-preco">FRETE: R$ {frete.toFixed(2)}</p>
-        <p className="total-preco">TOTAL: R$ {(precoFinal + frete).toFixed(2)}</p>
+        <p className="total-preco">TOTAL: R$ {(precoFinal * (1 - desconto) + frete).toFixed(2)}</p>
         <button className="btn-continue" onClick={closeCart}>Continuar Comprando</button>
         <button className="btn-finalizar" onClick={handleFinalizarCompra}>Finalizar Compra</button>
       </div>

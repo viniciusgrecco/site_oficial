@@ -39,7 +39,9 @@
 
 .btn-continue,
 .btn-finalizar,
-.btn-buscar {
+.btn-buscar,
+.btn-aplicar-cupom,
+.btn-remover {
   background-color: #FF7A00;
   color: white;
   border: 1px solid black; /* Borda preta leve */
@@ -57,7 +59,9 @@
 
 .btn-continue:hover,
 .btn-finalizar:hover,
-.btn-buscar:hover {
+.btn-buscar:hover,
+.btn-aplicar-cupom:hover,
+.btn-remover:hover {
   background-color: #E66A00;
 }
 
@@ -72,20 +76,22 @@
   padding: 10px; /* Adicione padding para dar espaço interno */
 }
 
-.cep-container {
+.cep-container,
+.cupom-container {
   margin-top: 20px;
   text-align: center;
 }
 
-.cep-container label {
+.cep-container label,
+.cupom-container label {
   display: flex;
   align-items: center;
   justify-content: center;
   margin-bottom: 10px;
-  margin-top: 20px;
 }
 
-.cep-container input {
+.cep-container input,
+.cupom-container input {
   width: auto; /* Ajusta a largura conforme necessário */
   padding: 10px;
   border: 1px solid #ccc;
@@ -93,7 +99,8 @@
   margin-left: 10px; /* Adicione espaço entre o label e o input */
 }
 
-.cep-container button {
+.cep-container button,
+.cupom-container button {
   background-color: #FF7A00;
   color: white;
   border: 1px solid black; /* Borda preta leve */
@@ -103,16 +110,13 @@
   cursor: pointer;
   transition: background-color 0.3s ease;
   width: 90%; /* Ajuste a largura conforme necessário */
-  margin-top: 20px; /* Aumenta o espaço entre o botão e os elementos acima */
+  margin-top: 10px;
   display: block;
   margin-left: auto;
   margin-right: auto;
 }
 
-.cep-container button:hover {
+.cep-container button:hover,
+.cupom-container button:hover {
   background-color: #E66A00;
-}
-
-.cep-container .endereco-info {
-  margin-top: 20px;
 }
